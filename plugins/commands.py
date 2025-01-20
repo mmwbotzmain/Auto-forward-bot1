@@ -21,12 +21,8 @@ START_TIME = time.time()
 # Ask Doubt on telegram @KingVJ01
 
 main_buttons = [[
-    InlineKeyboardButton('❣️ ᴅᴇᴠᴇʟᴏᴘᴇʀ ❣️', url='https://t.me/kingvj01')
-],[
-    InlineKeyboardButton('🔍 sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ', url='https://t.me/vj_bot_disscussion'),
-    InlineKeyboardButton('🤖 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='https://t.me/vj_botz')
-],[
-    InlineKeyboardButton('💝 sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ', url='https://youtube.com/@Tech_VJ')
+    InlineKeyboardButton('❣️ ᴅᴇᴠᴇʟᴏᴘᴇʀ ❣️', url='https://t.me/aktelegram1'),
+    InlineKeyboardButton('🤖 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='https://t.me/mallumovieworldmain1')
 ],[
     InlineKeyboardButton('👨‍💻 ʜᴇʟᴘ', callback_data='help'),
     InlineKeyboardButton('💁 ᴀʙᴏᴜᴛ', callback_data='about')
@@ -68,12 +64,10 @@ async def restart(client, message):
 @Client.on_callback_query(filters.regex(r'^help'))
 async def helpcb(bot, query):
     buttons = [[
-        InlineKeyboardButton('🤔 ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ ❓', callback_data='how_to_use')
-    ],[
         InlineKeyboardButton('Aʙᴏᴜᴛ ✨️', callback_data='about'),
         InlineKeyboardButton('⚙ Sᴇᴛᴛɪɴɢs', callback_data='settings#main')
     ],[
-        InlineKeyboardButton('• back', callback_data='back')
+        InlineKeyboardButton('• Back', callback_data='back')
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     await query.message.edit_text(text=Script.HELP_TXT, reply_markup=reply_markup)
@@ -110,7 +104,7 @@ async def back(bot, query):
 @Client.on_callback_query(filters.regex(r'^about'))
 async def about(bot, query):
     buttons = [[
-         InlineKeyboardButton('• back', callback_data='help'),
+         InlineKeyboardButton('• Back', callback_data='help'),
          InlineKeyboardButton('Stats ✨️', callback_data='status')
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -130,7 +124,7 @@ async def status(bot, query):
     forwardings = await db.forwad_count()
     upt = await get_bot_uptime(START_TIME)
     buttons = [[
-        InlineKeyboardButton('• back', callback_data='help'),
+        InlineKeyboardButton('• Back', callback_data='help'),
         InlineKeyboardButton('System Stats ✨️', callback_data='systm_sts'),
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -146,7 +140,7 @@ async def status(bot, query):
 
 @Client.on_callback_query(filters.regex(r'^systm_sts'))
 async def sys_status(bot, query):
-    buttons = [[InlineKeyboardButton('• back', callback_data='help')]]
+    buttons = [[InlineKeyboardButton('• Back', callback_data='help')]]
     ram = psutil.virtual_memory().percent
     cpu = psutil.cpu_percent()
     disk_usage = psutil.disk_usage('/')
